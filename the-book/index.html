@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>The Book in Chapters | BibleVis</title>
+  </head>
+  <body ng-app="app" ng-controller="ctrl">
+    <div class="header">Bible: the Word of the Lord</div>
+    <div class="main">
+      <div class="book" ng-repeat="book in books">
+        <div class="chapters">
+          <div class="chapter" ng-style="{ 'background-color': types[book.type] }" ng-repeat="a in array|limitTo:book.chapters track by $index"></div>
+        </div>
+        <div class="title">{{book.book}}</div>
+        <div class="description">
+          <div>{{book.chapters}} chapters</div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script>
+angular.module("app", []).controller("ctrl", function($scope, $http){
+  $http.get("../bible-chapters.json").then(function(response){
+    $scope.books = response.data;
+    $scope.books.splice(18, 1, { book: "Psalms (1-50)", chapters: 50, testament: "old", type: "wisdom" }, { book: "Psalms (51-100)", chapters: 50, testament: "old", type: "wisdom", start: 50 }, { book: "Psalms (101-150)", chapters: 50, testament: "old", type: "wisdom", start: 100 });
+    $scope.array = new Array(150);
+    $scope.types = {
+      "law": "#aec7e8",
+      "narrative": "#ffbb78",
+      "wisdom": "#98df8a",
+      "major prophets": "#ff9896",
+      "minor prophets": "#c5b0d5",
+      "gospels": "#c49c94",
+      "apostolic narrative": "#f7b6d2",
+      "pauline epistles": "#c7c7c7",
+      "general epistles": "#dbdb8d",
+      "apocalyptic": "#9edae5"
+    };
+  });
+});
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,500,700" rel="stylesheet">
+    <style>
+body {
+  font-family: Ubuntu;
+  background-color: #000;
+  color: #fff;
+}
+.header {
+  text-align: center;
+  font-size: 28px;
+  margin: 32px;
+  font-weight: bold;
+}
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.book {
+  width: 120px;
+  flex-shrink: 0;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.chapters {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+}
+.chapter {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin: 1px;
+  flex-shrink: 0;
+}
+.title {
+  text-align: center;
+  font-size: 14px;
+  margin: 6px 0 2px 0;
+  font-weight: 500;
+}
+.description {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 300;
+  color: #aaa;
+}
+    </style>
+  </body>
+</html>
