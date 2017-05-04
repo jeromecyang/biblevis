@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <body ng-app ng-init='names = ["Abraham", "Isaac", "Jacob", "Judah", "Perez", "Hezron", "Ram", "Amminadab", "Nahshon", "Salmon", "Boaz", "Obed", "Jesse", "King David", "Solomon", "Rehoboam", "Abijah", "Asa", "Jehoshaphat", "Jehoram", "Uzziah", "Jotham", "Ahaz", "Hezekiah", "Manasseh", "Amon", "Josiah", "Jeconiah", "Shealtiel", "Zerubbabel", "Abihud", "Eliakim", "Azor", "Zadok", "Akim", "Elihud", "Eleazar", "Matthan", "Jacob", "Joseph", "Jesus the Messiah"]' style="font-family: 'Open Sans', sans-serif;">
+    <div style="position: relative; width: 960px; height: 540px; margin: auto; transform: scale(1);">
+      <div style="position: absolute">
+        <div style="font-size: 120px; line-height: 100px">Women</div>
+        <div style="font-size: 48px; line-height: 40px">in the<br>Genealogy<br>of Christ</div>
+      </div>
+      <div style="position: absolute; top: 270px; width: 200px; font-size: 12px">
+This is the genealogy of Jesus the Messiah the son of David, the son of Abraham:
+Abraham was the father of Isaac,
+Isaac the father of Jacob,
+Jacob the father of Judah and his brothers,
+Judah the father of Perez and Zerah, whose mother was Tamar,
+Perez the father of Hezron,
+Hezron the father of Ram,
+Ram the father of Amminadab,
+Amminadab the father of Nahshon,
+Nahshon the father of Salmon,
+Salmon the father of Boaz, whose mother was Rahab,
+Boaz the father of Obed, whose mother was Ruth,
+Obed the father of Jesse,
+and Jesse the father of King David.</div>
+      <div style="position: absolute; top: 120px; left: 300px; width: 670px; height: 420px; display: flex; flex-wrap: wrap; flex-direction: column;">
+        <div ng-repeat='name in names track by $index' style="width: 80px; height: 40px; background-color: #ddd; color: #fff; text-align: center; border-radius: 4px; line-height: 40px; margin: 10px;"><span style="display: inline-block; vertical-align: middle; line-height: 16px; font-size: 14px;">{{name}}</span></div>
+      </div>
+      <div style="position: relative; top: 120px; left: 300px;">
+        <div class="woman" style="top: 180px; left: 60px; background-color: #ff7f0e;">Tamar</div>
+        <div class="woman" style="top: 120px; left: 172px; background-color: #d62728;">Rahab</div>
+        <div class="woman" style="top: 180px; left: 172px; background-color: #9467bd;">Ruth</div>
+        <div class="woman" style="top: 360px; left: 172px; background-color: #8c564b; font-size: 11px;">Uriah’s Wife</div>
+        <div class="woman" style="top: 240px; left: 620px; background-color: #e377c2;">Mary</div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <style>.woman { position: absolute; width: 60px; height: 60px; border-radius: 30px; opacity: 0.8; color: #fff; text-align: center; line-height: 60px; }</style>
+  </body>
+</html>
